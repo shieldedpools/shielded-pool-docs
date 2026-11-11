@@ -1,0 +1,42 @@
+---
+// Two public ledgers: one where a wrap and unwrap are easy to match, one where they aren't.
+const easy = [
+  { when: '10:02', kind: 'Wrap', addr: '…7f3a', amount: '1,234.5', you: true },
+  { when: '10:05', kind: 'Wrap', addr: '…c91e', amount: '100' },
+  { when: '10:09', kind: 'Unwrap', addr: '…7f3a', amount: '1,234.5', you: true },
+];
+const hard = [
+  { when: 'Mon', kind: 'Wrap', addr: '…7f3a', amount: '1,000', you: true },
+  { when: 'Tue', kind: 'Wrap', addr: '…c91e', amount: '1,000' },
+  { when: 'Wed', kind: 'Wrap', addr: '…44b0', amount: '500' },
+  { when: 'Thu', kind: 'Unwrap', addr: '…b6d1', amount: '1,000' },
+  { when: 'Fri', kind: 'Unwrap', addr: '…e2d8', amount: '400', you: true },
+  { when: 'Sun', kind: 'Unwrap', addr: '…0a7c', amount: '600', you: true },
+];
+---
+<figure class="dg not-content">
+  <div class="dg-pair">
+    {[
+      { title: 'Easy to link', tone: 'bad', rows: easy, why: 'Same unusual amount, same address, minutes apart.' },
+      { title: 'Hard to link', tone: 'good', rows: hard, why: 'Round amounts, split up, a fresh address, days later, among other people.' },
+    ].map(({ title, tone, rows, why }) => (
+      <div class={`dg-panel dg-panel--${tone}`}>
+        <p class="dg-title dg-title--sm">{title}</p>
+        <table class="dg-ledger">
+          <caption class="sr-only">{title}: public pool activity</caption>
+          <thead><tr><th scope="col">When</th><th scope="col">Action</th><th scope="col">Address</th><th scope="col">NIGHT</th></tr></thead>
+          <tbody>
+            {rows.map(r => (
+              <tr class={r.you ? (tone === 'bad' ? 'is-linked' : 'is-you') : undefined}>
+                <td>{r.when}</td><td>{r.kind}</td><td><code>{r.addr}</code></td>
+                <td>{r.amount}{r.you && <span class="dg-you">you</span>}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="dg-text">{why}</p>
+      </div>
+    ))}
+  </div>
+  <figcaption>What an observer sees on the public ledger. The “you” tags are only visible to you.</figcaption>
+</figure>

@@ -1,0 +1,60 @@
+---
+title: Private NIGHT on Midnight
+description: Shielded Pools turns NIGHT into sNIGHT, a 1:1 shielded token on Midnight. Hold and send it privately, and unwrap back to NIGHT at any time.
+template: splash
+hero:
+  tagline: Wrap NIGHT into sNIGHT at 1:1. Hold it and send it without putting your balance or payments on display. Unwrap back to NIGHT whenever you like.
+  actions:
+    - text: Wrap your first NIGHT
+      link: /wrap-night/
+      icon: right-arrow
+    - text: Why Shielded Pools?
+      link: /why/
+      variant: minimal
+    - text: Open the app
+      link: https://shieldedpools.io
+      icon: external
+      variant: minimal
+---
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import Lifecycle from '../../components/diagrams/Lifecycle.astro';
+
+## Why use it
+
+NIGHT is Midnight’s unshielded token: every balance and every transfer is public. sNIGHT is the same value as a **shielded** token. Once you hold it, what you own and who you pay are not visible on chain.
+
+<CardGrid>
+  <Card title="Private once inside" icon="seti:lock">
+    sNIGHT moves as ordinary Midnight shielded coins. Transfers hide the sender, recipient, amount, and token.
+  </Card>
+  <Card title="Always 1:1, fully backed" icon="approve-check">
+    Every sNIGHT is minted in the same step that locks one NIGHT. The locked balance is public, so anyone can check it.
+  </Card>
+  <Card title="Nobody can change it" icon="setting">
+    The contract was deployed with no admin key. Nobody can upgrade it, pause it, or take the NIGHT backing your sNIGHT.
+  </Card>
+  <Card title="No protocol fee" icon="star">
+    The contract keeps none of your NIGHT. You pay only Midnight’s normal network fee, in DUST.
+  </Card>
+</CardGrid>
+
+[Read the full case →](/why/)
+
+## How it works
+
+<Lifecycle />
+
+[Privacy](/privacy/) explains exactly what’s visible and how to protect yourself.
+
+:::caution[Early software]
+The contract has not had an independent audit. Try it on [Preprod](https://preprod.shieldedpools.io) with test tokens first, and only wrap what you can afford to lose. See [Risks](/risks/).
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard title="How it works" description="The wrap → hold → unwrap lifecycle, and what is public at each step." href="/how-it-works/" />
+  <LinkCard title="Wrap NIGHT" description="A step-by-step guide to your first wrap." href="/wrap-night/" />
+  <LinkCard title="Networks and contracts" description="Official app sites and contract addresses." href="/networks/" />
+  <LinkCard title="Build with the SDK" description="Add wrapping and unwrapping to your own app." href="/developers/sdk/" />
+</CardGrid>

@@ -1,0 +1,35 @@
+---
+// The wrap → hold → unwrap lifecycle, with what each step makes public.
+---
+<figure class="dg not-content">
+  <ol class="dg-row">
+    <li class="dg-card dg-card--public">
+      <span class="dg-zone">Public</span>
+      <p class="dg-title"><span class="dg-num">1</span>Wrap</p>
+      <p class="dg-tokens"><span class="dg-tok">NIGHT</span><span class="dg-to" aria-label="becomes">→</span><span class="dg-tok dg-tok--s">sNIGHT</span></p>
+      <dl class="dg-vis">
+        <div><dt>Visible</dt><dd>Your address, amount</dd></div>
+        <div><dt>Hidden</dt><dd>Who receives it</dd></div>
+      </dl>
+    </li>
+    <li class="dg-card dg-card--shielded">
+      <span class="dg-zone">Shielded</span>
+      <p class="dg-title"><span class="dg-num">2</span>Hold &amp; send</p>
+      <p class="dg-tokens"><span class="dg-tok dg-tok--s">sNIGHT</span><span class="dg-to" aria-label="sent to">→</span><span class="dg-tok dg-tok--s">sNIGHT</span></p>
+      <dl class="dg-vis">
+        <div><dt>Visible</dt><dd>Fee and time only</dd></div>
+        <div><dt>Hidden</dt><dd>Sender, recipient, amount, balance</dd></div>
+      </dl>
+    </li>
+    <li class="dg-card dg-card--public">
+      <span class="dg-zone">Public</span>
+      <p class="dg-title"><span class="dg-num">3</span>Unwrap</p>
+      <p class="dg-tokens"><span class="dg-tok dg-tok--s">sNIGHT</span><span class="dg-to" aria-label="becomes">→</span><span class="dg-tok">NIGHT</span></p>
+      <dl class="dg-vis">
+        <div><dt>Visible</dt><dd>Recipient, amount</dd></div>
+        <div><dt>Hidden</dt><dd>Whose sNIGHT paid</dd></div>
+      </dl>
+    </li>
+  </ol>
+  <figcaption>Entering and leaving the pool is public. Everything in between is shielded.</figcaption>
+</figure>

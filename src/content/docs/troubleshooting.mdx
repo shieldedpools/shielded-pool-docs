@@ -1,0 +1,49 @@
+---
+title: Troubleshooting
+description: Fix common Shielded Pools problems with wallets, networks, balances, addresses, disabled wrapping, and uncertain transactions.
+---
+import Outcome from '../../components/diagrams/Outcome.astro';
+
+## No wallet appears, or connection fails
+
+- Make sure your Midnight wallet is installed, unlocked, and allowed on this site, then select **Check again** in the wallet list.
+- The app lists wallets that support dApp connector 4.x.
+- If the wallet doesn’t respond, check it for a pending request.
+
+## Wrong network
+
+Switch your wallet to the network of the site you’re on ([Mainnet or Preprod](/networks/)) and reconnect. A Cardano wallet doesn’t hold Midnight NIGHT.
+
+## Balance shows “Unavailable”
+
+That means the balance couldn’t be read, not that it’s zero. Let your wallet finish syncing and check its connection. The app won’t let you send until it can read the balance.
+
+## Amount or address is rejected
+
+- **Amount:** a positive number with up to six decimal places, no commas, and no more than your balance.
+- **Wrapping to someone:** use their full shielded address on the same network (`mn_shield-addr…`).
+- **Unwrapping:** use an unshielded address on the same network (`mn_addr…`). If **My wallet** has no address to offer, choose **Another address**.
+
+## Wrapping is disabled
+
+The app explains why. Usually it couldn’t confirm the contract is immutable, because a data service is unreachable, or this site has no contract configured. Wait and try again. The block exists to protect you, so don’t try to work around it. **Unwrapping is still available.**
+
+## Proving or approval fails
+
+Check your wallet for pending requests, make sure you have DUST, and confirm it supports ledger 9. Proving can take a few minutes.
+
+## Submitted, timed out, or unknown outcome
+
+**Don’t send again until you’ve checked your balances and history.** The transaction may still confirm.
+
+<Outcome />
+
+“Outcome unknown” means the transaction reached your wallet but the app couldn’t confirm what happened, or the network applied only part of it.
+
+The app remembers unfinished transactions across reloads. Closing the tab doesn’t cancel one your wallet already has. If you have a transaction ID, look it up on the [Midnight explorer](https://midnightexplorer.com) (or the [Preprod explorer](https://preprod.midnightexplorer.com)).
+
+## Still stuck?
+
+Report SDK problems on the [SDK issue tracker](https://github.com/shieldedpools/shielded-pool-sdk/issues) and contract problems on the [contract issue tracker](https://github.com/shieldedpools/shielded-pool-contract/issues). You can also reach the team on [X](https://x.com/ShieldedPools). Include the network, what you were doing, the error text, and your wallet and version.
+
+**Never share your seed phrase or private keys.** Remember that addresses, amounts, and transaction IDs in a public report are public.

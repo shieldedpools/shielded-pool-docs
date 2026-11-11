@@ -1,0 +1,46 @@
+---
+title: How it works
+description: The wrap, hold, and unwrap lifecycle of sNIGHT, what is public at each step, and how the 1:1 backing is enforced.
+---
+import Lifecycle from '../../components/diagrams/Lifecycle.astro';
+import Backing from '../../components/diagrams/Backing.astro';
+import Roles from '../../components/diagrams/Roles.astro';
+
+Shielded Pools is one smart contract on Midnight with two functions: **wrap** (the contract calls it `shield`) and **unwrap** (`unshield`).
+
+## The lifecycle
+
+<Lifecycle />
+
+1. **Wrap.** You send NIGHT to the contract. It locks the NIGHT and mints the same amount of sNIGHT to you, or to someone else’s shielded address.
+2. **Hold and send.** sNIGHT sits in your wallet as shielded coins. You can send it to anyone with a shielded address.
+3. **Unwrap.** You pay sNIGHT into the contract. It retires the sNIGHT and releases the same amount of NIGHT to any unshielded address.
+
+Steps 1 and 3 cross between Midnight’s public and shielded sides, which is why they are visible. Step 2 is where the privacy is.
+
+## How the 1:1 backing is enforced
+
+The 1:1 ratio isn’t a policy. It is how the contract is written:
+
+<Backing />
+
+Wrap takes in NIGHT and mints sNIGHT for the same amount in the same step, so if either part fails, neither happens. Unwrap first checks that the coin paid in really is this contract’s sNIGHT. The NIGHT locked in the contract therefore always equals the sNIGHT in circulation, and you can check the locked side yourself on the app’s **Ledger** page.
+
+## Which sNIGHT is real?
+
+A Midnight token is identified by a 64-character *colour*, not by its name. sNIGHT’s colour is derived from NIGHT and the contract’s address, so only the official contract can mint it. A token that merely calls itself “sNIGHT” is not backed by this pool. The official addresses are on [Networks and contracts](/networks/).
+
+## Who does what
+
+<Roles />
+
+The proof server is the one part to think about: see [proof-server trust](/risks/#proof-server-trust).
+
+## Sending sNIGHT to someone
+
+There are two ways to pay someone in sNIGHT:
+
+- **Wrap to them directly.** In the app, choose **Another address** when wrapping and enter their full shielded address (`mn_shield-addr…`). Your wrap is public, but the recipient is not.
+- **Send from your wallet.** If your wallet supports sending shielded tokens, send sNIGHT like any other shielded token. Nothing about this transfer is linked to the pool.
+
+The recipient can hold the sNIGHT, pass it on, or unwrap it to NIGHT.

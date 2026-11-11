@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+const url = 'https://docs.shieldedpools.io/404.html';
+---
+<StarlightPage frontmatter={{
+  title: 'Page not found',
+  description: 'This Shielded Pools documentation page could not be found.',
+  tableOfContents: false,
+  prev: false,
+  next: false,
+  head: [
+    { tag: 'meta', attrs: { name: 'robots', content: 'noindex' } },
+    { tag: 'link', attrs: { rel: 'canonical', href: url } },
+    { tag: 'meta', attrs: { property: 'og:url', content: url } },
+  ],
+}}>
+  <p>The page may have moved. <a href="/">Return to the introduction</a>, use the navigation, or search the documentation.</p>
+</StarlightPage>

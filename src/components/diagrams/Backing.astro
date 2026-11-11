@@ -1,0 +1,29 @@
+---
+// How wrap and unwrap keep locked NIGHT equal to the sNIGHT supply.
+---
+<figure class="dg not-content">
+  <div class="dg-flows">
+    <div class="dg-flow">
+      <span class="dg-flow-label">Wrap</span>
+      <span class="dg-tok">10 NIGHT</span>
+      <span class="dg-to" aria-label="into">→</span>
+      <span class="dg-box">Contract <small>locks 10 NIGHT and mints 10 sNIGHT, in one step</small></span>
+      <span class="dg-to" aria-label="gives">→</span>
+      <span class="dg-tok dg-tok--s">10 sNIGHT</span>
+    </div>
+    <div class="dg-flow">
+      <span class="dg-flow-label">Unwrap</span>
+      <span class="dg-tok dg-tok--s">10 sNIGHT</span>
+      <span class="dg-to" aria-label="into">→</span>
+      <span class="dg-box">Contract <small>retires 10 sNIGHT and releases 10 NIGHT, in one step</small></span>
+      <span class="dg-to" aria-label="gives">→</span>
+      <span class="dg-tok">10 NIGHT</span>
+    </div>
+  </div>
+  <p class="dg-equal">
+    <span class="dg-bar">NIGHT locked in the contract</span>
+    <span class="dg-eq" aria-label="always equals">=</span>
+    <span class="dg-bar dg-bar--s">sNIGHT in circulation</span>
+  </p>
+  <figcaption>No other path can mint sNIGHT or release NIGHT, so the two totals always match.</figcaption>
+</figure>

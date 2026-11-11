@@ -1,0 +1,21 @@
+---
+// What to do when a transaction doesn't confirm.
+---
+<figure class="dg not-content">
+  <p class="dg-node dg-node--start">The transaction didn’t confirm</p>
+  <div class="dg-branches">
+    <div class="dg-branch">
+      <p class="dg-node"><span class="dg-zone">App says</span><strong>Failed</strong></p>
+      <p class="dg-node">Nothing happened on chain</p>
+      <p class="dg-node dg-node--good">Safe to try again</p>
+    </div>
+    <div class="dg-branch">
+      <p class="dg-node"><span class="dg-zone">App says</span><strong>Outcome unknown</strong></p>
+      <p class="dg-node dg-node--warn">Don’t resend yet. Let your wallet sync, then check balances and history.</p>
+      <div class="dg-leaves">
+        <p class="dg-node dg-node--good">It went through: done</p>
+        <p class="dg-node">No sign of it: try again</p>
+      </div>
+    </div>
+  </div>
+</figure>

@@ -1,0 +1,29 @@
+---
+// Who holds what: app, wallet, proof server, contract.
+---
+<figure class="dg not-content">
+  <ol class="dg-row">
+    <li class="dg-card">
+      <span class="dg-zone">Your browser</span>
+      <p class="dg-title">The app</p>
+      <p class="dg-text">A static website. Shows your balances, checks the contract is immutable, and asks your wallet to send.</p>
+      <p class="dg-note">Never sees your keys</p>
+    </li>
+    <li class="dg-card dg-card--shielded">
+      <span class="dg-zone">Your control</span>
+      <p class="dg-title">Your wallet</p>
+      <p class="dg-text">Holds your keys, gets the proof made, pays the DUST fee, and submits the transaction.</p>
+      <div class="dg-sub dg-sub--warn">
+        <p class="dg-title dg-title--sm">Proof server</p>
+        <p class="dg-text">Makes the proof and sees key material. Local or remote: your wallet decides.</p>
+      </div>
+    </li>
+    <li class="dg-card">
+      <span class="dg-zone">Midnight</span>
+      <p class="dg-title">The contract</p>
+      <p class="dg-text">Locks and releases NIGHT, and mints and retires sNIGHT.</p>
+      <p class="dg-note">Immutable, no admin key</p>
+    </li>
+  </ol>
+  <figcaption>Requests flow from the app to your wallet to the network. Only your wallet, and the proof server it chooses, handle keys.</figcaption>
+</figure>

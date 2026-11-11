@@ -1,0 +1,46 @@
+---
+title: Privacy
+description: What sNIGHT hides, what wrapping and unwrapping reveal, and practical steps to keep your activity hard to link.
+---
+import Linking from '../../components/diagrams/Linking.astro';
+
+sNIGHT hides your balance and payments while you hold it. Getting into and out of the pool is public. Knowing exactly where that line falls is what lets you use sNIGHT well.
+
+## What is hidden and what is public
+
+| | Public | Hidden |
+| --- | --- | --- |
+| **Wrapping** | The address that paid, the token, and the amount | Who received the sNIGHT |
+| **Holding sNIGHT** | Nothing | Your balance |
+| **Sending sNIGHT** | The fee and the time | Sender, recipient, amount, and token |
+| **Unwrapping** | The receiving address, the token, and the amount | Whose sNIGHT paid for it |
+| **The pool** | Total NIGHT locked, and every wrap and unwrap | Who currently holds sNIGHT |
+
+The app’s **Ledger** and **Stats** pages show exactly the public side: every wrap’s paying address and every unwrap’s receiving address, with amounts and times.
+
+## How links can still be made
+
+Because entries and exits are public, an observer can try to match them. For example, if one address wraps 1,234.5 NIGHT and a few minutes later an unwrap releases 1,234.5 NIGHT, they are probably the same person. The pool hides what happens *between* wrap and unwrap. It can’t hide a pattern that you make obvious.
+
+<Linking />
+
+## Protect your privacy
+
+- **Don’t unwrap the amount you wrapped.** Unwrap different amounts, or split them up. Your wallet funds unwraps from any sNIGHT you hold, so amounts never need to match.
+- **Prefer common, round amounts.** 100 NIGHT blends in. 1,234.567 NIGHT stands out.
+- **Let time pass.** An unwrap minutes after a matching wrap is easy to link. One weeks later, among many others, is not.
+- **Unwrap to a fresh address,** not the one you wrapped from.
+- **Stay shielded when you can.** If the recipient can accept sNIGHT, send sNIGHT instead of unwrapping and paying in NIGHT.
+- **Watch what you share.** Posting a transaction ID or address publicly can undo all of the above.
+
+Privacy improves as more people use the pool. Every extra wrap and unwrap makes any single one harder to pick out.
+
+## Your wallet sees your activity
+
+Your wallet holds your keys and builds your proofs, so it necessarily knows your shielded balance and transactions. If your wallet uses a remote proof server, that server receives sensitive key material. See [proof-server trust](/risks/#proof-server-trust).
+
+The Shielded Pools app has no backend and no analytics. It reads your balances and addresses through your wallet only to show them to you.
+
+## No guarantees
+
+sNIGHT gives you Midnight’s shielded-token privacy. It doesn’t guarantee anonymity against every observer, erase NIGHT’s public history before you wrapped, or hide information you disclose yourself.

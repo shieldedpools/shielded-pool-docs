@@ -1,0 +1,10 @@
+---
+import Default from '@astrojs/starlight/components/Header.astro';
+---
+<div class="docs-header"><div class="default-header"><Default><slot /></Default></div><a class="open-app" href="https://shieldedpools.io">Open app <span aria-hidden="true">↗</span></a></div>
+<style>
+.docs-header { display:flex; gap:1rem; align-items:center; width:100%; }
+.default-header { flex:1; min-width:0; }
+.open-app { flex-shrink:0; background:var(--sl-color-text-accent); color:var(--sl-color-black); border-radius:.4rem; padding:.45rem .8rem; text-decoration:none; font-size:.875rem; font-weight:650; }
+@media(max-width: 50rem) { .docs-header { gap:.5rem; padding-inline-end:0; } .open-app { padding:.4rem .5rem; font-size:.8rem; } }
+</style>

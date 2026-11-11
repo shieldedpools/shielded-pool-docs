@@ -1,0 +1,39 @@
+:root {
+  --sl-color-accent-low: #291344;
+  --sl-color-accent: #a78bfa;
+  --sl-color-accent-high: #ddd0ff;
+  --sl-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sl-content-width: 47rem;
+  --sl-color-bg: #141517;
+  --sl-color-bg-nav: #1d1f22;
+  --sl-color-bg-sidebar: #191a1d;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #eee7fb;
+  --sl-color-accent: #5b21b6;
+  --sl-color-accent-high: #3b1478;
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #f7f7f5;
+  --sl-color-bg-sidebar: #fafaf9;
+}
+.site-title { font-weight: 750; letter-spacing: -.04em; }
+h1, h2, h3 { letter-spacing: -.025em; }
+.sl-markdown-content { line-height: 1.8; }
+.sl-markdown-content a { text-underline-offset: .2em; }
+:focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 4px; }
+
+@media (max-width: 50rem) {
+  .site-title { font-size: 1rem; white-space: nowrap; }
+  .docs-header .header { gap: .5rem; }
+}
+@media (max-width: 23rem) {
+  .site-title { white-space: normal; line-height: 1.1; }
+  .site-title span { white-space: normal; }
+}
+
+.site-title { gap: .5rem; }
+.site-title img { width: 2rem; height: 2rem; object-fit: contain; flex-shrink: 0; }
+@media (max-width: 23rem) {
+  /* Keep the official mark and an accessible name when header space is tight. */
+  .site-title span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+}
